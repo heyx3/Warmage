@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: f9fcab33c3809ca408e0f0bfa97ae62b
+timeCreated: 1444889763
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: group
+    100002: group1
+    100004: group2
+    100006: J_Head
+    100008: J_Hip
+    100010: J_LeftEye
+    100012: J_LeftHand
+    100014: J_LeftLeg
+    100016: J_RightEye
+    100018: J_RightHand
+    100020: J_RightLeg
+    100022: //RootNode
+    100024: pasted__group
+    100026: pasted__pasted__pSphere1
+    100028: pasted__pCube2
+    100030: pasted__pSphere1
+    100032: pasted__pSphere1 1
+    100034: pCube1
+    100036: pCube2
+    100038: polySurface1
+    100040: pSphere1
+    100042: transform1
+    100044: transform2
+    100046: transform3
+    100048: transform4
+    100050: transform5
+    100052: transform6
+    100054: transform7
+    400000: group
+    400002: group1
+    400004: group2
+    400006: J_Head
+    400008: J_Hip
+    400010: J_LeftEye
+    400012: J_LeftHand
+    400014: J_LeftLeg
+    400016: J_RightEye
+    400018: J_RightHand
+    400020: J_RightLeg
+    400022: //RootNode
+    400024: pasted__group
+    400026: pasted__pasted__pSphere1
+    400028: pasted__pCube2
+    400030: pasted__pSphere1
+    400032: pasted__pSphere1 1
+    400034: pCube1
+    400036: pCube2
+    400038: polySurface1
+    400040: pSphere1
+    400042: transform1
+    400044: transform2
+    400046: transform3
+    400048: transform4
+    400050: transform5
+    400052: transform6
+    400054: transform7
+    4300000: polySurface1
+    7400000: Attack
+    9500000: //RootNode
+    13700000: polySurface1
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 1
+    motionNodeName: <Root Transform>
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: .864690721
+        functionName: MakeAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 271f9d7072bb43247925158637eb9074,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: pCube1
+        weight: 1
+      - path: pCube1/transform7
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform1
+        weight: 1
+      - path: group
+        weight: 1
+      - path: group/pasted__pSphere1
+        weight: 1
+      - path: group/pasted__pSphere1/transform2
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/pasted__pSphere1 1
+        weight: 1
+      - path: group1/pasted__pSphere1 1/transform4
+        weight: 1
+      - path: group1/pasted__group
+        weight: 1
+      - path: group1/pasted__group/pasted__pasted__pSphere1
+        weight: 1
+      - path: group1/pasted__group/pasted__pasted__pSphere1/transform3
+        weight: 1
+      - path: pCube2
+        weight: 1
+      - path: pCube2/transform5
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: group2/pasted__pCube2
+        weight: 1
+      - path: group2/pasted__pCube2/transform6
+        weight: 1
+      - path: J_Hip
+        weight: 1
+      - path: J_Hip/J_Head
+        weight: 1
+      - path: J_Hip/J_Head/J_RightHand
+        weight: 1
+      - path: J_Hip/J_Head/J_LeftHand
+        weight: 1
+      - path: J_Hip/J_Head/J_LeftEye
+        weight: 1
+      - path: J_Hip/J_Head/J_RightEye
+        weight: 1
+      - path: J_Hip/J_RightLeg
+        weight: 1
+      - path: J_Hip/J_LeftLeg
+        weight: 1
+      - path: polySurface1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
