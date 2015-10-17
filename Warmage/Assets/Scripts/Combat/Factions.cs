@@ -2,5 +2,4 @@
 {
 	Enemies,
 	Allies,
-	Player,
 }

@@ -10,11 +10,11 @@ public class Minion : Attackable
 	private static MinionConstants Consts { get { return MinionConstants.Instance; } }
 
 
-	public bool ToggleWalking = false,
-				ToggleAttacking = false,
-				ToggleFallOver = false;
-
 	public Attacker HandAttackSource;
+	public Faction Owner;
+
+	[NonSerialized]
+	public Vector2 WalkTargetPos;
 
 	private Animator contr;
 
@@ -35,43 +35,48 @@ public class Minion : Attackable
 		MyTr = transform;
 		MyRgd = GetComponent<Rigidbody>();
 	}
+	void Start()
+	{
+		if (Owner == null)
+		{
+			Debug.LogWarning("This minion has no owner: \"" + gameObject.name + "\"");
+		}
+		Owner.Minions.Add(this);
+	}
+	void OnDestroy()
+	{
+		UnityEngine.Assertions.Assert.IsTrue(Owner.Minions.Contains(this));
+		Owner.Minions.Remove(this);
+	}
 
 	void Update()
 	{
-		if (!contr.IsInTransition(0))
+		//Only do normal logic if not in the middle of attacking somebody or falling down.
+		if (!IsAttacking && !IsFlailing)
 		{
-			AnimatorStateInfo info = contr.GetCurrentAnimatorStateInfo(0);
-			bool isFlailing = IsFlailing;
+			Vector3 myPos = MyTr.position;
+			Vector2 myPos2 = myPos.Horz();
 
-			if (!isFlailing && ToggleWalking)
+			//If near enough to the target pos, stop walking.
+			if (myPos2.DistanceSqr(WalkTargetPos) <= Consts.MaxDistSqrFromTarget)
 			{
-				ToggleWalking = false;
 				if (IsWalking)
 					StopWalking();
-				else
+			}
+			else
+			{
+				if (!IsWalking)
 					StartWalking();
+
+				//Rotate to face the target position.
+				MyTr.LookAt(Vector3.Lerp(myPos + (MyTr.forward * 10.0f),
+										 WalkTargetPos.Full3D(myPos.y),
+										 Consts.TurnLerpRate));
 			}
-			else if (!isFlailing && ToggleAttacking)
-			{
-				ToggleAttacking = false;
-				if (IsAttacking)
-					StopAttacking();
-				else
-					StartAttacking();
-			}
-			else if (ToggleFallOver)
-			{
-				ToggleFallOver = false;
-				if (isFlailing)
-				{
-					GetBackUp();
-				}
-				else
-				{
-					FallOver();
-					MyRgd.AddTorque(new Vector3(100000000.0f, 0.0f, 0.0f), ForceMode.VelocityChange);
-				}
-			}
+		}
+		if (IsWalking)
+		{
+			MyRgd.position += MyTr.forward * (Time.deltaTime * Consts.WalkSpeed);
 		}
 	}
 

@@ -112,41 +112,41 @@ ModelImporter:
       - path: 
         weight: 1
       - path: pCube1
-        weight: 1
+        weight: 0
       - path: pCube1/transform7
-        weight: 1
+        weight: 0
       - path: pSphere1
-        weight: 1
+        weight: 0
       - path: pSphere1/transform1
-        weight: 1
+        weight: 0
       - path: group
-        weight: 1
+        weight: 0
       - path: group/pasted__pSphere1
-        weight: 1
+        weight: 0
       - path: group/pasted__pSphere1/transform2
-        weight: 1
+        weight: 0
       - path: group1
-        weight: 1
+        weight: 0
       - path: group1/pasted__pSphere1 1
-        weight: 1
+        weight: 0
       - path: group1/pasted__pSphere1 1/transform4
-        weight: 1
+        weight: 0
       - path: group1/pasted__group
-        weight: 1
+        weight: 0
       - path: group1/pasted__group/pasted__pasted__pSphere1
-        weight: 1
+        weight: 0
       - path: group1/pasted__group/pasted__pasted__pSphere1/transform3
-        weight: 1
+        weight: 0
       - path: pCube2
-        weight: 1
+        weight: 0
       - path: pCube2/transform5
-        weight: 1
+        weight: 0
       - path: group2
-        weight: 1
+        weight: 0
       - path: group2/pasted__pCube2
-        weight: 1
+        weight: 0
       - path: group2/pasted__pCube2/transform6
-        weight: 1
+        weight: 0
       - path: J_Hip
         weight: 1
       - path: J_Hip/J_Head
