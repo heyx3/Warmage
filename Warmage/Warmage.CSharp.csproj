@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.2.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -62,33 +60,164 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
+    <Reference Include="LeapCSharp.NET3.5">
+      <HintPath>Assets\Plugins\LeapCSharp.NET3.5.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\HandController.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\DebugFinger.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\DebugHand.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\FingerModel.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\HandFader.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\HandModel.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\PolyFinger.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\PolyHand.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\RiggedFinger.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\RiggedHand.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\RigidFinger.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\RigidHand.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\SkeletalFinger.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Hands\SkeletalHand.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\LeapDeviceInfo.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\LeapImageBasedMaterial.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\LeapImageRetriever.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Tools\ToolModel.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\ConfidenceTransparency.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\DisconnectionNotice.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\EnableDepthBuffer.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\EnableUpdateOrdering.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\ExecutionOrder.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\FitHeightToScreen.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\GrabbableObject.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\GrabbingHand.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\KeyEnableGameObjects.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\KeyEnableMonoBehaviors.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\LeapRecorder.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\LeapUnityExtensions.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\MagneticPinch.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\StretchToScreen.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\TriggerDrawing.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Scripts\Utils\Utils.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Button\ButtonBase.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Button\ButtonToggleBase.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\DemoScripts\ButtonDemoGraphics.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\DemoScripts\ButtonDemoToggle.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\DemoScripts\SliderDemo.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\DemoScripts\SliderDemoGraphics.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Dial\DatePickerHideVolume.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Dial\DialGraphics.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Dial\DialModeBase.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Dial\FadeTextByRotation.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Dial\HilightTextVolume.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Events\EventArg.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Interfaces\AnalogInteractionHandler.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Interfaces\BinaryInteractionHandler.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Interfaces\DataBinder.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Interfaces\IDataBoundWidget.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Physics\LeapPhysicsBase.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Physics\LeapPhysicsSpring.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Scroll\ScrollBase.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Slider\SliderBase.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\SliderActivationManager.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Utils\AdoptParent.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Utils\FrameRateControls.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Utils\PreserveChildren.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Utils\SmoothedFloat.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Utils\SmoothedQuaternion.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotion\Widgets\Scripts\Utils\SmoothedVector3.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\CamRecorder\Scripts\CamRecorder.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\CamRecorder\Scripts\CamRecorderInterface.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Scripts\CompensatedRescale.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Scripts\ConfigurationManager\HMRConfigurationManager.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Scripts\ConfigurationManager\LMHeadMountedRigConfiguration.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Scripts\LeapCameraAlignment.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Scripts\RewindGameObject.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Scripts\TimeWarpStatus.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Scripts\TouchCubeHelpMenu.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Scripts\TouchCubeQueues.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\SystemWipe\QuickSwitcher.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\SystemWipe\SystemWipeRecognizerListener.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\SystemWipe\SystemWipeRecognizerNative.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Widgets\Scripts\DataBinderExamples\DialToTextBinder.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Widgets\Scripts\DataBinderExamples\SliderToTextDataBinder.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Widgets\Scripts\DataBinderExamples\ToggleToTextDataBinder.cs" />
+    <Compile Include="Assets\Leap Motion\LeapMotionVR\Widgets\Scripts\WidgetsEnabler.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\OVRDebugHeadController.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\OVROverlay.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\OVRPlatformMenu.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\OVRTouchpad.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\OVRVolumeControl.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\Utils\OVRChromaticAberration.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\Utils\OVRDebugGraph.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\Utils\OVRDebugUtils.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\Utils\OVRInputControl.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\Utils\OVRModeParms.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\Utils\OVRMonoscopic.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\Utils\OVRResetOrientation.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Moonlight\Scripts\Utils\OVRWaitCursor.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\OVRCameraRig.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\OVRCommon.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\OVRDisplay.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\OVRManager.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\OVROnCompleteListener.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\OVRPlugin.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\OVRProfile.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\OVRTracker.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\Util\OVRDebugInfo.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\Util\OVRGamepadController.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\Util\OVRGridCube.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\Util\OVRPlayerController.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\Util\OVRSceneSampleController.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\Util\OVRScreenFade.cs" />
+    <Compile Include="Assets\Leap Motion\OVR\Scripts\Util\OVRTrackerBounds.cs" />
     <Compile Include="Assets\Scripts\Combat\Attackable.cs" />
     <Compile Include="Assets\Scripts\Combat\Attacker.cs" />
     <Compile Include="Assets\Scripts\Combat\Factions.cs" />
     <Compile Include="Assets\Scripts\Content\FactionConstants.cs" />
+    <Compile Include="Assets\Scripts\Content\GestureConstants.cs" />
     <Compile Include="Assets\Scripts\Content\MinionConstants.cs" />
     <Compile Include="Assets\Scripts\Extensions.cs" />
+    <Compile Include="Assets\Scripts\KillAfterTime.cs" />
+    <Compile Include="Assets\Scripts\KinematicsTracker.cs" />
     <Compile Include="Assets\Scripts\Minions\Faction.cs" />
     <Compile Include="Assets\Scripts\Minions\FactionSpawner.cs" />
     <Compile Include="Assets\Scripts\Minions\Flail.cs" />
     <Compile Include="Assets\Scripts\Minions\GetBackUp.cs" />
     <Compile Include="Assets\Scripts\Minions\Minion.cs" />
+    <Compile Include="Assets\Scripts\Player\GestureController.cs" />
     <Compile Include="Assets\Scripts\PunchablePhysicsObj.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Leap Motion\LeapMotion\Dependencies.txt" />
+    <None Include="Assets\Leap Motion\LeapMotion\Materials\Sources\Shaders\Toony-Basic.shader" />
+    <None Include="Assets\Leap Motion\LeapMotion\Materials\Sources\Shaders\Toony-BasicOutline.shader" />
+    <None Include="Assets\Leap Motion\LeapMotion\Materials\Sources\Shaders\Toony-Lighted.shader" />
+    <None Include="Assets\Leap Motion\LeapMotion\Materials\Sources\Shaders\Toony-LightedOutline.shader" />
+    <None Include="Assets\Leap Motion\LeapMotion\README_BEFORE_UPDATING.txt" />
+    <None Include="Assets\Leap Motion\LeapMotion\Resources\ImageHandHighlight.shader" />
+    <None Include="Assets\Leap Motion\LeapMotion\Resources\LeapCG.cginc" />
+    <None Include="Assets\Leap Motion\LeapMotion\Resources\PassthroughBackground.shader" />
+    <None Include="Assets\Leap Motion\LeapMotion\Resources\PassthroughForeground.shader" />
+    <None Include="Assets\Leap Motion\LeapMotion\Resources\ThresholdOverlay.shader" />
+    <None Include="Assets\Leap Motion\LeapMotion\Shaders\RimShading.shader" />
+    <None Include="Assets\Leap Motion\LeapMotion\Version.txt" />
+    <None Include="Assets\Leap Motion\LeapMotion\Widgets\Shaders\SelfIllumAlpha.shader" />
+    <None Include="Assets\Leap Motion\LeapMotion\readme.txt" />
+    <None Include="Assets\Leap Motion\OVR\Moonlight\Resources\Unlit Transparent Color.shader" />
+    <None Include="Assets\Leap Motion\OVR\Moonlight\Shaders\OVRColorRampAlpha.shader" />
+    <None Include="Assets\Leap Motion\OVR\Moonlight\Shaders\Unlit Crosshair.shader" />
+    <None Include="Assets\Plugins\Android\assets\donotdelete.txt" />
+    <None Include="Assets\Plugins\donotdelete.txt" />
+    <None Include="Assets\Plugins\x86\donotdelete.txt" />
+    <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
