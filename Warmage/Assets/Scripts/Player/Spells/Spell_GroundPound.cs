@@ -17,6 +17,17 @@ public class Spell_GroundPound : RechargableSpell
 
 	public override bool CanUseSpell(GestureController controller)
 	{
+		if (base.CanUseSpell(controller) && controller.IsFingerPointing.All(b => b) &&
+			controller.SwipeVerticalStrength < 0.0f)
+		{
+			Vector3 palmPos = controller.PalmTracker.MyTransform.position;
+			float terrHeight = Terrain.activeTerrain.SampleHeight(palmPos);
+
+			return Mathf.Abs(palmPos.y - terrHeight) <= Consts.GroundPound.MaxDistFromTerrain;
+		}
+
+		return false;
+
 		return base.CanUseSpell(controller) &&
 			   controller.IsFingerPointing.All(b => b) &&
 			   controller.SwipeVerticalStrength < 0.0f;
@@ -26,7 +37,6 @@ public class Spell_GroundPound : RechargableSpell
 	{
 		base.CastSpell(controller);
 
-		Vector3 dir = controller.FingerTrackers[2].MyTransform.up;
 
 		Transform gpTr = GameObject.Instantiate<GameObject>(Consts.GroundPound.Prefab).transform;
 		
@@ -37,6 +47,7 @@ public class Spell_GroundPound : RechargableSpell
 
 		//Set the ground-pound's strength and direction.
 		UnityEngine.Assertions.Assert.IsTrue(controller.SwipeVerticalStrength < 0.0f);
+		Vector3 dir = controller.FingerTrackers[2].MyTransform.forward;
 		GroundPoundController gpC = gpTr.gameObject.GetComponent<GroundPoundController>();
 		gpC.Setup(-controller.SwipeVerticalStrength - GestureConstants.Instance.SwipeVelocityThreshold,
 				  dir.Horz().normalized);

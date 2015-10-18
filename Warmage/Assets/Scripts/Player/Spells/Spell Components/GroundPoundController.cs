@@ -38,6 +38,7 @@ public class GroundPoundController : Attacker
 
 	private ParticleSystem parts;
 	private float timeTillEmit;
+	private float baseSpeed;
 
 
 	public void Setup(float strength, Vector2 dir)
@@ -52,6 +53,7 @@ public class GroundPoundController : Attacker
 
 		parts = GetComponent<ParticleSystem>();
 		timeTillEmit = Consts.BurstInterval;
+		baseSpeed = parts.startSpeed;
 
 		gameObject.AddComponent<KillAfterTime>().TimeTillDeath = Consts.Lifetime;
 	}
@@ -71,5 +73,7 @@ public class GroundPoundController : Attacker
 		newPos += (Dir * Time.deltaTime * Speed).Full3D(0.0f);
 		newPos.y = Terrain.activeTerrain.SampleHeight(newPos);
 		MyTr.position = newPos;
+
+		parts.startSpeed = Strength * Consts.ParticleSpeedGrowth;
 	}
 }

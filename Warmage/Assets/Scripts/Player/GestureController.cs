@@ -119,12 +119,11 @@ public class GestureController : MonoBehaviour
 		else
 		{
 			Vector3 palmVel = PalmTracker.GetAverageVelocity(Consts.SwipeGestureDuration);
-			Vector3 camRight = EyeCenter.right,
-					camUp = EyeCenter.up,
-					camForward = EyeCenter.forward;
+			Vector3 camRight = EyeCenter.right.HorzDir(),
+					camForward = EyeCenter.forward.HorzDir();
 
 			float sidewaysSpeed = Vector3.Dot(palmVel, camRight),
-				  upwardsSpeed = Vector3.Dot(palmVel, camUp),
+				  upwardsSpeed = palmVel.y,
 				  forwardSpeed = Vector3.Dot(palmVel, camForward);
 			if (Mathf.Abs(sidewaysSpeed) < Consts.SwipeVelocityThreshold)
 			{

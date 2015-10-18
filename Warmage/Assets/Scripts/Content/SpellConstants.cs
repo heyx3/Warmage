@@ -14,12 +14,18 @@ public class SpellConstants : Singleton<SpellConstants>
 	{
 		public float RechargeTime = 2.0f;
 		public float Lifetime = 3.0f;
+
 		public float BurstInterval = 0.25f;
+
 		public float MinForce = 1.0f,
 					 ForceGrowth = 1.0f;
 		public float MinSpeed = 1.0f,
-					 SpeedGrowth = 5.0f;
+					 SpeedGrowth = 0.05f;
+		public float ParticleSpeedGrowth = 0.1f;
+
 		public int ParticlesPerBurst = 100;
+
+		public float MaxDistFromTerrain = 0.5f;
 
 		public GameObject Prefab = null;
 	}
