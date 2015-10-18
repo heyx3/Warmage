@@ -108,7 +108,10 @@ public class Minion : Attackable
 		MyRgd.AddForceAtPosition(attacker.MyTr.forward * force, attacker.MyTr.position,
 								 ForceMode.Impulse);
 
-		Instantiate<GameObject>(PunchParticlesPrefab).transform.position = attacker.MyTr.position;
+		if (attacker.Faction != Factions.Player)
+		{
+			Instantiate<GameObject>(PunchParticlesPrefab).transform.position = attacker.MyTr.position;
+		}
 	}
 
 

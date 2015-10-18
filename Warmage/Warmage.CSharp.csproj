@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.2.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -183,8 +185,8 @@
     <Compile Include="Assets\Scripts\Content\FactionConstants.cs" />
     <Compile Include="Assets\Scripts\Content\GestureConstants.cs" />
     <Compile Include="Assets\Scripts\Content\MinionConstants.cs" />
+    <Compile Include="Assets\Scripts\Content\SpellConstants.cs" />
     <Compile Include="Assets\Scripts\Extensions.cs" />
-    <Compile Include="Assets\Scripts\KillAfterTime.cs" />
     <Compile Include="Assets\Scripts\KinematicsTracker.cs" />
     <Compile Include="Assets\Scripts\Minions\Faction.cs" />
     <Compile Include="Assets\Scripts\Minions\FactionSpawner.cs" />
@@ -192,8 +194,14 @@
     <Compile Include="Assets\Scripts\Minions\GetBackUp.cs" />
     <Compile Include="Assets\Scripts\Minions\Minion.cs" />
     <Compile Include="Assets\Scripts\Player\GestureController.cs" />
+    <Compile Include="Assets\Scripts\Player\Spells\RechargableSpell.cs" />
+    <Compile Include="Assets\Scripts\Player\Spells\Spell Components\GroundPoundController.cs" />
+    <Compile Include="Assets\Scripts\Player\Spells\Spell.cs" />
+    <Compile Include="Assets\Scripts\Player\Spells\Spell_GroundPound.cs" />
     <Compile Include="Assets\Scripts\PunchablePhysicsObj.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\UI\DiscoveryItemController.cs" />
+    <Compile Include="Assets\Scripts\UI\KillAfterTime.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Leap Motion\LeapMotion\Dependencies.txt" />

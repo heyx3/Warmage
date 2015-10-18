@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -55,6 +56,8 @@ public class GestureController : MonoBehaviour
 
 	//Swipe gestures will not happen until a certain amount of time has elapsed.
 	private float elapsed = 0.0f;
+	//A copy of the global spell definitions.
+	private List<Spell> mySpells;
 
 
 	void Start()
@@ -71,6 +74,8 @@ public class GestureController : MonoBehaviour
 			FingerTrackers[i] = AddTrackerTo(Hand, i);
 			IsFingerPointing[i] = false;
 		}
+
+		mySpells = SpellConstants.Instance.Spells.Select(sp => sp.MakeCopy()).ToList();
 	}
 	private KinematicsTracker AddTrackerTo(HandModel model, int fingerIndex)
 	{
@@ -147,6 +152,16 @@ public class GestureController : MonoBehaviour
 			{
 				SwipeForwardStrength = forwardSpeed;
 				elapsed = 0.0f;
+			}
+		}
+
+		//Update spells.
+		foreach (Spell s in mySpells)
+		{
+			s.Update();
+			if (s.CanUseSpell(this))
+			{
+				s.CastSpell(this);
 			}
 		}
 	}

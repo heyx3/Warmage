@@ -11,12 +11,12 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Attacker : MonoBehaviour
 {
-	public Factions Faction;
+	public Factions Faction = Factions.Player;
 
 	public Transform MyTr { get; private set; }
 	
 
-	public List<Attackable> inRange = new List<Attackable>();
+	private List<Attackable> inRange = new List<Attackable>();
 
 
 	protected virtual void Awake()

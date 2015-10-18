@@ -19,6 +19,14 @@ public static class Extensions
 	{
 		return new Vector3(v.x, height, v.y);
 	}
+
+	/// <summary>
+	/// Removes the vertical component from this vector while keeping it normalized.
+	/// </summary>
+	public static Vector3 HorzDir(this Vector3 v)
+	{
+		return v.Horz().normalized.Full3D(0.0f);
+	}
 	
 	public static float DistanceSqr(this Vector3 v1, Vector3 other)
 	{

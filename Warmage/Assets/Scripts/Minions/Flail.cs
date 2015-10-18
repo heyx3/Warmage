@@ -32,7 +32,12 @@ public class Flail : StateMachineBehaviour
 		elapsed += Time.deltaTime;
 		if (elapsed >= FlailTime)
 		{
-			animator.SetTrigger("Get Back Up");
+			//Wait until this minion is on or near the ground.
+			Vector3 pos = mn.MyRgd.position;
+			if (pos.y < Terrain.activeTerrain.SampleHeight(pos) + 0.1f)
+			{
+				animator.SetTrigger("Get Back Up");
+			}
 		}
 	}
 }
