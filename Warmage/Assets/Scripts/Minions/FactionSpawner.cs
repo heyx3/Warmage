@@ -98,7 +98,6 @@ public class FactionSpawner : MonoBehaviour
 		float angle = UnityEngine.Random.Range(0.0f, Mathf.PI * 2.0f),
 			  dist = UnityEngine.Random.value * Radius;
 		Vector2 offset = new Vector2(dist, 0.0f).Rotate(angle);
-		Vector3 offset3 = offset.Full3D(Terrain.activeTerrain.SampleHeight(offset.Full3D(9999999.0f)));
 		
 		//Get the correct height for it.
 		Vector3 offsetPos = basePos + offset.Full3D(0.0f);

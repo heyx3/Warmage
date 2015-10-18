@@ -10,7 +10,10 @@ public class Minion : Attackable
 	private static MinionConstants Consts { get { return MinionConstants.Instance; } }
 
 
+	public GameObject PunchParticlesPrefab;
+
 	public Attacker HandAttackSource;
+	[NonSerialized]
 	public Faction Owner;
 
 	[NonSerialized]
@@ -34,6 +37,11 @@ public class Minion : Attackable
 		contr = GetComponent<Animator>();
 		MyTr = transform;
 		MyRgd = GetComponent<Rigidbody>();
+
+		if (PunchParticlesPrefab == null)
+		{
+			Debug.LogError("Punch Particles Prefab is null for a minion!");
+		}
 	}
 	void Start()
 	{
@@ -51,32 +59,37 @@ public class Minion : Attackable
 
 	void Update()
 	{
+		Vector3 myPos = MyTr.position;
+		Vector2 myPos2 = myPos.Horz();
+
+		//Rotate to face the target position.
+		MyTr.LookAt(Vector3.Lerp(myPos + (MyTr.forward * 10.0f),
+									(WalkTargetPos + new Vector2(0.00001f, 0.0f)).Full3D(myPos.y),
+									Consts.TurnLerpRate));
+
 		//Only do normal logic if not in the middle of attacking somebody or falling down.
 		if (!IsAttacking && !IsFlailing)
 		{
-			Vector3 myPos = MyTr.position;
-			Vector2 myPos2 = myPos.Horz();
-
-			//If near enough to the target pos, stop walking.
-			if (myPos2.DistanceSqr(WalkTargetPos) <= Consts.MaxDistSqrFromTarget)
+			bool closeEnough = (myPos2.DistanceSqr(WalkTargetPos) <= Consts.MaxDistSqrFromTarget);
+			if (IsWalking)
 			{
-				if (IsWalking)
+				//If near enough to the target pos, stop walking.
+				if (closeEnough)
+				{
 					StopWalking();
+				}
+				else
+				{
+					MyRgd.position += MyTr.forward * (Time.deltaTime * Consts.WalkSpeed);
+				}
 			}
 			else
 			{
-				if (!IsWalking)
+				if (!closeEnough)
+				{
 					StartWalking();
-
-				//Rotate to face the target position.
-				MyTr.LookAt(Vector3.Lerp(myPos + (MyTr.forward * 10.0f),
-										 WalkTargetPos.Full3D(myPos.y),
-										 Consts.TurnLerpRate));
+				}
 			}
-		}
-		if (IsWalking)
-		{
-			MyRgd.position += MyTr.forward * (Time.deltaTime * Consts.WalkSpeed);
 		}
 	}
 
@@ -94,6 +107,8 @@ public class Minion : Attackable
 
 		MyRgd.AddForceAtPosition(attacker.MyTr.forward * force, attacker.MyTr.position,
 								 ForceMode.Impulse);
+
+		Instantiate<GameObject>(PunchParticlesPrefab).transform.position = attacker.MyTr.position;
 	}
 
 

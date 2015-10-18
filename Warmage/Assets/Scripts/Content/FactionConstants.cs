@@ -9,4 +9,10 @@ public class FactionConstants : Singleton<FactionConstants>
 	/// all minions in that faction target specific enemies.
 	/// </summary>
 	public float AttackDist = 20.0f;
+
+	/// <summary>
+	/// Once a minion gets within this distance from its target minion,
+	/// it starts punching.
+	/// </summary>
+	public float MinionAttackDist = 1.25f;
 }

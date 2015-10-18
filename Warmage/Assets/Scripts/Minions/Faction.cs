@@ -108,12 +108,27 @@ public class Faction : MonoBehaviour
 			else
 			{
 				//If this faction is close enough, seek directly towards minions in the target faction.
-				if (Target.Minions.Count > 0 &&
+				if (Target.Minions.Count > 0 && Target.minionPoses.Length > 0 &&
 					AveragePos.DistanceSqr(Target.AveragePos) < Consts.AttackDist * Consts.AttackDist)
 				{
 					for (int i = 0; i < Minions.Count; ++i)
 					{
-						Minions[i].WalkTargetPos = Target.minionPoses[i % Target.minionPoses.Length].Horz();
+						int enemyI = i % Target.Minions.Count;
+						Vector3 enemyPos = Target.minionPoses[enemyI];
+						
+						Minions[i].WalkTargetPos = enemyPos.Horz();
+						
+						//If close enough, attack.
+						if (minionPoses[i].DistanceSqr(enemyPos) < Consts.MinionAttackDist * Consts.MinionAttackDist)
+						{
+							if (!Minions[i].IsAttacking)
+								Minions[i].StartAttacking();
+						}
+						else
+						{
+							if (Minions[i].IsAttacking)
+								Minions[i].StopAttacking();
+						}
 					}
 				}
 				//Otherwise, just move towards the enemy faction while preserving formation.
