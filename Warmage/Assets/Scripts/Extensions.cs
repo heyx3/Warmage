@@ -60,6 +60,10 @@ public static class Extensions
 						   (sin * v.x) + (cos * v.y));
 	}
 
+	public static Vector3 ToV3(this Leap.Vector v)
+	{
+		return new Vector3(v.x, v.y, v.z);
+	}
 
 	/// <summary>
 	/// Takes a collection of collections and compresses it all into one list.

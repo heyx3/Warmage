@@ -477,6 +477,7 @@ public class HandController : MonoBehaviour {
             info = new LeapDeviceInfo(LeapDeviceType.Dragonfly);
             break;
           default:
+				info = new LeapDeviceInfo(LeapDeviceType.Peripheral);
             break;
         }
       }

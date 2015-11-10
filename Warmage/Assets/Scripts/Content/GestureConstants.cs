@@ -14,4 +14,13 @@ public class GestureConstants : Singleton<GestureConstants>
 	public float SwipeVelocityThreshold = 100.0f;
 
 	public float SwipeWait = 0.5f;
+
+
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+	}
 }

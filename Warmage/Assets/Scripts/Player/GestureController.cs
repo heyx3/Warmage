@@ -8,6 +8,7 @@ using UnityEngine;
 /// Controls input for a Leap Motion hand.
 /// </summary>
 [RequireComponent(typeof(HandModel))]
+[RequireComponent(typeof(AudioSource))]
 public class GestureController : MonoBehaviour
 {
 	public static List<GestureController> AllControllers = new List<GestureController>();
@@ -15,8 +16,23 @@ public class GestureController : MonoBehaviour
 	private static GestureConstants Consts { get { return GestureConstants.Instance; } }
 
 
+	public AudioSource AudioSrc { get; private set; }
+
+	//X is left, Y is forward, Z is down.
+
 	public HandModel Hand { get; private set; }
 	public Transform EyeCenter { get; private set; }
+
+	/// <summary>
+	/// The palm's position relative to the camera/Leap tracker.
+	/// X is leftward, Y is forward, Z is downward.
+	/// </summary>
+	public Vector3 PalmTrackerPos { get; private set; }
+
+	/// <summary>
+	/// The maximum value for PalmTrackerPos.y, after which accuracy decreases noticeably.
+	/// </summary>
+	public float MaxPalmForward { get { return 450.0f; } }
 
 	/// <summary>
 	/// The kinematics tracker for the palm.
@@ -60,6 +76,11 @@ public class GestureController : MonoBehaviour
 	private List<Spell> mySpells;
 
 
+	void Awake()
+	{
+		AudioSrc = GetComponent<AudioSource>();
+	}
+
 	void Start()
 	{
 		Hand = GetComponent<HandModel>();
@@ -91,8 +112,14 @@ public class GestureController : MonoBehaviour
 	private Vector3[] fingerPoses = new Vector3[5],
 					  fingerForwards = new Vector3[5],
 					  fingersToPalm = new Vector3[5];
+
+	public bool[] Test = new bool[5];
 	void Update()
 	{
+		Test = IsFingerPointing;
+
+		PalmTrackerPos = Hand.GetLeapHand().PalmPosition.ToV3();
+
 		Vector3 palmPos = GetWorldPos(PalmTracker);
 
 		//Calculate finger information.

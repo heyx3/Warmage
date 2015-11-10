@@ -3,6 +3,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(ParticleSystem))]
+[RequireComponent(typeof(AudioSource))]
 public class GroundPoundController : Attacker
 {
 	private static SpellConstants.GroundPoundData Consts { get { return SpellConstants.Instance.GroundPound; } }
@@ -37,6 +38,7 @@ public class GroundPoundController : Attacker
 
 
 	private ParticleSystem parts;
+	private AudioSource audSrc;
 	private float timeTillEmit;
 	private float baseSpeed;
 
@@ -45,12 +47,15 @@ public class GroundPoundController : Attacker
 	{
 		Strength = strength;
 		Dir = dir;
+		
+		audSrc.Play();
 	}
 
 	protected override void Awake()
 	{
 		base.Awake();
 
+		audSrc = GetComponent<AudioSource>();
 		parts = GetComponent<ParticleSystem>();
 		timeTillEmit = Consts.BurstInterval;
 		baseSpeed = parts.startSpeed;
@@ -65,7 +70,10 @@ public class GroundPoundController : Attacker
 		{
 			timeTillEmit += Consts.BurstInterval;
 			parts.Emit(Consts.ParticlesPerBurst);
+
 			Attack(Force);
+			audSrc.volume = Mathf.Lerp(0.2f, 1.0f, Mathf.Clamp01(Strength / 30.0f));
+			audSrc.Play();
 		}
 
 		//Move along the surface of the terrain.
